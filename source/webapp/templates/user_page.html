@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p class="font-weight-bold text-center mt-3">Пользователь - <span class="font-weight-normal">{{ user.pk }}</span></p>
-    <div class="text-center"><b>Все данные пользователя</b></div> {{ user.all_user_data }}
+    <h3 class="text-center mt-3">Страница просмотра пользователя</h3>
+    <p class="font-weight-bold mt-3">Имя - <span class="font-weight-normal">{{ user.first_name }}</span></p>
+    <p class="font-weight-bold mt-3">Фамилие - <span class="font-weight-normal">{{ user.last_name }}</span></p>
+    <p class="font-weight-bold mt-3">Почта - <span class="font-weight-normal">{{ user.email }}</span></p>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <button class="btn btn_outline_none btn-light"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-controls="collapseOne">
+                <span class="btn_accordion_text">Все данные пользователя</span>
+            </button>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                {{ user.all_user_data }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

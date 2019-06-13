@@ -1,7 +1,7 @@
 import requests
 from webapp.models import User
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 
 def index_view(request):
@@ -19,10 +19,15 @@ def get_user(request):
     sha256 = user_data_for_mail['results'][0]['login']['sha256']
     email_constructor = first_name[0:2] + last_name + '@' + city + '.' + country_code.lower()
     user = User.objects.create(all_user_data=user_data_for_mail, email=email_constructor, md5=md5, sha1=sha1,
-                               sha256=sha256)
+                               sha256=sha256, first_name=first_name.capitalize(), last_name=last_name.capitalize())
     return redirect('user_page', pk=user.pk)
 
 
 class UserDetailView(DetailView):
     model = User
     template_name = 'user_page.html'
+
+
+class UserListView(ListView):
+    model = User
+    template_name = 'all_user.html'
