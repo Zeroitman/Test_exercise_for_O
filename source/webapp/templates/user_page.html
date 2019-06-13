@@ -6,19 +6,15 @@
     <p class="font-weight-bold mt-3">Почта - <span class="font-weight-normal">{{ user.email }}</span></p>
     <p class="font-weight-bold mt-3">Разделённый хэш md5- <span class="font-weight-normal">{{ user.md5 }}</span></p>
     <p class="font-weight-bold mt-3">Разделённый хэш sha1 - <span class="font-weight-normal">{{ user.sha1 }}</span></p>
-    <p class="font-weight-bold mt-3">Разделённый хэш sha256 - <span class="font-weight-normal">{{ user.sha256 }}</span></p>
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <button class="btn btn_outline_none btn-light"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapseOne"
-                    aria-controls="collapseOne">
-                <span class="btn_accordion_text">Все данные пользователя</span>
-            </button>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                {{ user.all_user_data }}
-            </div>
-        </div>
+    <p class="font-weight-bold mt-3">Разделённый хэш sha256 - <span class="font-weight-normal">{{ user.sha256 }}</span>
+    </p>
+    <div id="accordion" class="accordion">
+        <button type="button" class="btn btn-light btn-lg btn-block">
+            <span class="btn_accordion_text">Все данные пользователя</span>
+        </button>
+        <div>{{ user.all_user_data }}</div>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script>$('#accordion').accordion({active: false, collapsible: true})</script>
 {% endblock %}
