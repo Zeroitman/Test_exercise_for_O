@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from webapp.views import index_view, get_user, get_api_link
+from webapp.views import index_view, get_user
 from webapp.views import UserDetailView, UserListView
 
 urlpatterns = [
@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view, name="start_page"),
     path('user', get_user, name="get_user"),
-    path('hostname/user', get_api_link, name="get_api_link"),
     path('user/<int:pk>', UserDetailView.as_view(), name='user_page'),
     path('all_users', UserListView.as_view(), name='all_user_page')
 ]

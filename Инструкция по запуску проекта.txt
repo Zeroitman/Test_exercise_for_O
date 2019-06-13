@@ -1,0 +1,8 @@
+1. У Вас должен установлен python 3.7 и virtualenv
+2. Склонируйте проект командой git clone https://github.com/Zeroitman/Test_exercise_for_O.git
+3. В папке проекта создайте виртуальное окружение командой virtualenv -p python3.7 venv
+4. Активируйте виртуальное окружение командой source venv/bin/activate
+5. Установите все зависимости из файла requirements.txt командой pip install -r requirements.txt
+6. Перейдите в папку source. Внутри этой папки должен находиться файл manage.py
+7. Проведите миграции командой ./manage.py migrate
+8. Запустите сервер командой ./manage.py runserver и перейдите по указанному адресу

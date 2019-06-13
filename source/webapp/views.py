@@ -3,7 +3,6 @@ from webapp.models import User
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView
 import re
-from django.http import HttpResponseRedirect
 
 
 def index_view(request):
@@ -55,10 +54,6 @@ def get_user(request):
                                first_name=first_name.capitalize(),
                                last_name=last_name.capitalize())
     return redirect('user_page', pk=user.pk)
-
-
-def get_api_link():
-    return HttpResponseRedirect('../hostname/user/')
 
 
 class UserDetailView(DetailView):
