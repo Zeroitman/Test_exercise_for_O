@@ -4,17 +4,21 @@
     <p class="font-weight-bold mt-3">Имя - <span class="font-weight-normal">{{ user.first_name }}</span></p>
     <p class="font-weight-bold mt-3">Фамилие - <span class="font-weight-normal">{{ user.last_name }}</span></p>
     <p class="font-weight-bold mt-3">Почта - <span class="font-weight-normal">{{ user.email }}</span></p>
-    <p class="font-weight-bold mt-3">Разделённый хэш md5- <span class="font-weight-normal">{{ user.md5 }}</span></p>
-    <p class="font-weight-bold mt-3">Разделённый хэш sha1 - <span class="font-weight-normal">{{ user.sha1 }}</span></p>
-    <p class="font-weight-bold mt-3">Разделённый хэш sha256 - <span class="font-weight-normal">{{ user.sha256 }}</span>
+    <p class="font-weight-bold mt-3">Разделённый хэш md5 - <span class="font-weight-normal">{{ user.md5 }}</span></p>
+    <p class="font-weight-bold mt-3">Разделённый хэш sha1 - <span class="font-weight-normal">{{ user.sha1 }}</span>
+    </p>
+    <p class="font-weight-bold mt-3">Разделённый хэш sha256 - <span
+            class="font-weight-normal">{{ user.sha256 }}</span>
     </p>
     <div id="accordion" class="accordion">
-        <button type="button" class="btn btn-light btn-lg btn-block">
+        <button type="button" class="btn bg-info btn-lg btn-block">
             <span class="btn_accordion_text">Все данные пользователя</span>
         </button>
         <div>{{ user.all_user_data }}</div>
     </div>
 {% endblock %}
 {% block scripts %}
-    <script>$('#accordion').accordion({active: false, collapsible: true})</script>
+    <script>
+        $('#accordion').accordion({active: false, collapsible: true})
+    </script>
 {% endblock %}

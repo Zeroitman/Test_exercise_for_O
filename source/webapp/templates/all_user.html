@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
+    {% if user_list %}
         {% for user in user_list %}
             <div class="card text-center m-2">
                 <div class="card-header">
@@ -11,5 +11,7 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+    {% else %}
+        <h4 class="text-dark font-weight-normal text-center mt-3">Пользователи не запрашивались</h4>
+    {% endif %}
 {% endblock %}
