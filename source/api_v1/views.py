@@ -11,15 +11,24 @@ def get_random_user():
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(id__in=get_random_user())
+    try:
+        queryset = User.objects.filter(id__in=get_random_user())
+    except ValueError:
+        queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserShortViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(id__in=get_random_user())
+    try:
+        queryset = User.objects.filter(id__in=get_random_user())
+    except ValueError:
+        queryset = User.objects.all()
     serializer_class = UserShortSerializer
 
 
 class UserNumberViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(id__in=get_random_user())
+    try:
+        queryset = User.objects.filter(id__in=get_random_user())
+    except ValueError:
+        queryset = User.objects.all()
     serializer_class = UserNumberSerializer
