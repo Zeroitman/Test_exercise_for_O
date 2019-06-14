@@ -52,7 +52,9 @@ def get_user(request):
                                sha1=sha1_ready,
                                sha256=sha256_ready,
                                first_name=first_name.capitalize(),
-                               last_name=last_name.capitalize())
+                               last_name=last_name.capitalize(),
+                               city=city.capitalize(),
+                               country_code=country_code)
     return redirect('user_page', pk=user.pk)
 
 

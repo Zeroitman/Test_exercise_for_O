@@ -5,6 +5,8 @@ class User(models.Model):
     first_name = models.CharField(max_length=255, verbose_name='Имя пользователя')
     last_name = models.CharField(max_length=255, verbose_name='Фамилие пользователя')
     email = models.EmailField(verbose_name='Почтовый ящик')
+    city = models.CharField(max_length=255, verbose_name='Город')
+    country_code = models.CharField(max_length=255, verbose_name='Код страны')
     md5 = models.TextField(verbose_name='Разделённый md5')
     sha1 = models.TextField(verbose_name='Разделённый sha1')
     sha256 = models.TextField(verbose_name='Разделённый sha256')

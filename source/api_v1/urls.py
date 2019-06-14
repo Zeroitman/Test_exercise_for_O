@@ -2,9 +2,10 @@ from django.urls import include, path
 from rest_framework import routers
 from api_v1 import views
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register(r'user', views.UserViewSet)
-
+router.register(r'short', views.UserShortViewSet)
+router.register(r'numbers', views.UserNumberViewSet)
 
 app_name = 'api_v1'
 
