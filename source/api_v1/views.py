@@ -1,4 +1,5 @@
 import random
+from django.db import OperationalError
 from webapp.models import User
 from rest_framework import viewsets
 from api_v1.serializers import UserSerializer, UserShortSerializer, UserNumberSerializer
@@ -12,23 +13,35 @@ def get_random_user():
 
 class UserViewSet(viewsets.ModelViewSet):
     try:
-        queryset = User.objects.filter(id__in=get_random_user())
-    except ValueError:
         queryset = User.objects.all()
+        try:
+            queryset = User.objects.filter(id__in=get_random_user())
+        except OperationalError:
+            pass
+    except ValueError:
+        pass
     serializer_class = UserSerializer
 
 
 class UserShortViewSet(viewsets.ModelViewSet):
     try:
-        queryset = User.objects.filter(id__in=get_random_user())
-    except ValueError:
         queryset = User.objects.all()
+        try:
+            queryset = User.objects.filter(id__in=get_random_user())
+        except OperationalError:
+            pass
+    except ValueError:
+        pass
     serializer_class = UserShortSerializer
 
 
 class UserNumberViewSet(viewsets.ModelViewSet):
     try:
-        queryset = User.objects.filter(id__in=get_random_user())
-    except ValueError:
         queryset = User.objects.all()
+        try:
+            queryset = User.objects.filter(id__in=get_random_user())
+        except OperationalError:
+            pass
+    except ValueError:
+        pass
     serializer_class = UserNumberSerializer
